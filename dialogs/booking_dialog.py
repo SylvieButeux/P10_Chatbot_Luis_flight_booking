@@ -194,7 +194,7 @@ class BookingDialog(CancelAndHelpDialog):
 
         if step_context.result:
             # 0: critique 1: erreur 2: warning 3: info 4: commentaire
-            self.telemetry_client.track_trace("Final YES", properties, 3)
+            self.telemetry_client.track_trace("Final_YES", properties, "INFO")
             booking_details = step_context.options
             booking_details.travel_date = step_context.result
 
@@ -202,7 +202,7 @@ class BookingDialog(CancelAndHelpDialog):
 
         else :
             # 0: critique 1: erreur 2: warning 3: info 4: commentaire
-            self.telemetry_client.track_trace("Final NO", properties, 1)
+            self.telemetry_client.track_trace("Final_NO", properties, "ERROR")
 
         return await step_context.end_dialog()
 
